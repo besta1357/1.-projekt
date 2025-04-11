@@ -28,7 +28,9 @@ TEXTS = [
     represent several varieties of perch, as well as
     other freshwater genera and herring similar to those
     in modern oceans. Other fish such as paddlefish,
-    garpike and stingray are also present.'''
+    garpike and stingray are also present.''',
+    '''Isel Macek do Malacek sosovicku mlatit. Mam 4 sestry a 1 brata
+    a to uz je dost. Dam si este 1 pivo a pojdem spat'''
 ]
 registrovani_uzivatele = {
     "bob" : 123,
@@ -64,56 +66,47 @@ else:
   print("unregistered user, terminating the program...")
   exit()
 
-vycistena_slova = [slovo.strip(",.:;'") for slovo in TEXTS[vyber_textu - 1].split()]
-pocet_slov = len(vycistena_slova)
-print(f"Text number {vyber_textu} contains {pocet_slov} words.") 
-
 vycistena_slova = []
 pocet_malych_slov = 0
 pocet_velkych_slov = 0
 pocet_cisel = 0
 pocet_slov_s_velkym_pismenom = 0
-cisla_v_textu = []
+#cisla_v_textu = []
 pismena_ve_slovech = []
-
 cisla_v_textu = [int(cisla) for cisla in TEXTS[vyber_textu - 1].split() if cisla.isnumeric()]
 suma_cisel = sum(cisla_v_textu)
-#vycistena_slova = [slovo.strip(",.:;'") for slovo in TEXTS[vyber_textu - 1].split()]
-#pocet_slov = len(vycistena_slova)         
+      
 for slova in TEXTS[vyber_textu - 1].split():
     ciste_slovo = slova.strip(",.:;'")
-    vycistena_slova.append(ciste_slovo)    
+    vycistena_slova.append(ciste_slovo)
+    pocet_slov = len(vycistena_slova)    
+    pocet_pismen_ve_slovech = len(ciste_slovo) #vytvori pocet pismen v jednotlivych slovech
+    pismena_ve_slovech.append(pocet_pismen_ve_slovech) #vytvoreni listu s poctem pismen ve slovech    
     if slova.islower():
         pocet_malych_slov += 1      
     elif slova.isupper():
         pocet_velkych_slov += 1       
     elif slova.isnumeric():
         pocet_cisel += 1          
-    for pismena in slova:
+    for pismena in slova: #vytvori jenom prvni pismeno slova
         break        
     if pismena.isupper():
        pocet_slov_s_velkym_pismenom += 1      
-
+print(f"Text number {vyber_textu} contains {pocet_slov} words.")
 print(f"There are {pocet_malych_slov} lowercase words.")
 print(f"There are {pocet_velkych_slov} uppercase words.")
 print(f"There are {pocet_slov_s_velkym_pismenom - pocet_velkych_slov} titlecase words.")
 print(f"There are {pocet_cisel} numeric strings.")
 print(f"The sum of all the numbers {suma_cisel}")
 
-for slova in TEXTS[0].split():
-    ciste_slovo = slova.strip(",.:;'")
-    vycistena_slova.append(ciste_slovo)
-    pocet_pismen_ve_slovech = len(ciste_slovo)
-    pismena_ve_slovech.append(pocet_pismen_ve_slovech)
-
-#nejdejelsi_slovo = int(max(pismena_ve_slovech))
+#nejdelsi_slovo = int(max(pismena_ve_slovech))
 
 vyskyt_slov = {}
 for cetnost in pismena_ve_slovech:
     if cetnost not in vyskyt_slov:
         vyskyt_slov[cetnost] = 1
     else:
-        vyskyt_slov[cetnost] = vyskyt_slov[cetnost] + 1
+        vyskyt_slov[cetnost] += 1
 serazeny_vyskyt_slov = dict(sorted(vyskyt_slov.items()))
 nejvyssi_cetnost = max(serazeny_vyskyt_slov.values())
 print(cara)
@@ -121,6 +114,6 @@ print("LEN |".center(5) + "OCCURENCES".center(15) + "| NR.".center(10))
 print(cara)
 
 for delka_slova in serazeny_vyskyt_slov:
-    print(f"{delka_slova: ^4}|{serazeny_vyskyt_slov[delka_slova]*"*": ^1}" + 
+    print(f"{delka_slova: ^4}|{serazeny_vyskyt_slov[delka_slova]*"*": ^1}" +
           f"{" "*((nejvyssi_cetnost - serazeny_vyskyt_slov[delka_slova])+8)}" + 
           f"|{serazeny_vyskyt_slov[delka_slova]}")
