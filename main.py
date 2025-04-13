@@ -28,9 +28,7 @@ TEXTS = [
     represent several varieties of perch, as well as
     other freshwater genera and herring similar to those
     in modern oceans. Other fish such as paddlefish,
-    garpike and stingray are also present.''',
-    '''Isel Macek do Malacek sosovicku mlatit. Mam 4 sestry a 1 brata
-    a to uz je dost. Dam si este 1 pivo a pojdem spat'''
+    garpike and stingray are also present.'''
 ]
 registrovani_uzivatele = {
     "bob" : 123,
@@ -117,3 +115,4 @@ for delka_slova in serazeny_vyskyt_slov:
     print(f"{delka_slova: ^4}|{serazeny_vyskyt_slov[delka_slova]*"*": ^1}" +
           f"{" "*((nejvyssi_cetnost - serazeny_vyskyt_slov[delka_slova])+8)}" + 
           f"|{serazeny_vyskyt_slov[delka_slova]}")
+print(cara)
