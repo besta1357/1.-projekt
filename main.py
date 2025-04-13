@@ -75,7 +75,6 @@ pocet_malych_slov = 0
 pocet_velkych_slov = 0
 pocet_cisel = 0
 pocet_slov_s_velkym_pismenom = 0
-#cisla_v_textu = []
 pismena_ve_slovech = []
 cisla_v_textu = [int(cisla) for cisla in TEXTS[vyber_textu - 1].split() if cisla.isnumeric()]
 suma_cisel = sum(cisla_v_textu)
@@ -95,7 +94,8 @@ for slova in TEXTS[vyber_textu - 1].split():
     for pismena in slova: #vytvori jenom prvni pismeno slova
         break        
     if pismena.isupper():
-       pocet_slov_s_velkym_pismenom += 1      
+       pocet_slov_s_velkym_pismenom += 1 
+            
 print(f"Text number {vyber_textu} contains {pocet_slov} words.")
 print(f"There are {pocet_malych_slov} lowercase words.")
 print(f"There are {pocet_velkych_slov} uppercase words.")
