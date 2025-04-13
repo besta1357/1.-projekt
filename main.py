@@ -60,6 +60,10 @@ if uzivatel in registrovani_uzivatele and heslo == registrovani_uzivatele[uzivat
       exit()
       print(cara)
   print(cara)
+elif uzivatel in registrovani_uzivatele and heslo != registrovani_uzivatele[uzivatel]:
+  print("Invalid password, terminating the program...")
+  exit()
+  print(cara)  
 else:
   print("unregistered user, terminating the program...")
   exit()
