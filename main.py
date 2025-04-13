@@ -28,8 +28,9 @@ TEXTS = [
     represent several varieties of perch, as well as
     other freshwater genera and herring similar to those
     in modern oceans. Other fish such as paddlefish,
-    garpike and stingray are also present.'''
-]
+    garpike and stingray are also present.'''  
+    ]
+
 registrovani_uzivatele = {
     "bob" : 123,
     "ann" : "pass123",
@@ -40,7 +41,7 @@ cara = "-" * 40
 pocet_textu = (len(TEXTS))
 
 uzivatel = input("username: ")
-heslo = input("pasword: ")
+heslo = input("password: ")
 
 if heslo.isnumeric():
   heslo = int(heslo)  
@@ -52,22 +53,23 @@ if uzivatel in registrovani_uzivatele and heslo == registrovani_uzivatele[uzivat
   if vyber_textu.isnumeric():
      vyber_textu = int(vyber_textu)
      if vyber_textu < 1 or vyber_textu > pocet_textu:
+          print(cara)
           print("Invalid number, terminating the program...")
-          exit()
-          print(cara)               
+          exit()                       
   else:
-      print("Invalid input, terminating the program...")
-      exit()
       print(cara)
+      print("Invalid input, terminating the program...")
+      exit()      
   print(cara)
 elif uzivatel in registrovani_uzivatele and heslo != registrovani_uzivatele[uzivatel]:
+  print(cara)
   print("Invalid password, terminating the program...")
-  exit()
-  print(cara)  
+  exit()   
 else:
+  print(cara)
   print("unregistered user, terminating the program...")
   exit()
-
+  
 vycistena_slova = []
 pocet_malych_slov = 0
 pocet_velkych_slov = 0
@@ -119,4 +121,4 @@ for delka_slova in serazeny_vyskyt_slov:
     print(f"{delka_slova: ^4}|{serazeny_vyskyt_slov[delka_slova]*"*": ^1}" +
           f"{" "*((nejvyssi_cetnost - serazeny_vyskyt_slov[delka_slova])+8)}" + 
           f"|{serazeny_vyskyt_slov[delka_slova]}")
-print(cara)
+print(cara) 
