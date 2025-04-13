@@ -51,15 +51,15 @@ if uzivatel in registrovani_uzivatele and heslo == registrovani_uzivatele[uzivat
   print(cara)
   vyber_textu = (input(f"Enter a number btw. 1 and {pocet_textu} to select: "))
   if vyber_textu.isnumeric():
-     vyber_textu = int(vyber_textu)
-     if vyber_textu < 1 or vyber_textu > pocet_textu:
-          print(cara)
-          print("Invalid number, terminating the program...")
-          exit()                       
-  else:
+    vyber_textu = int(vyber_textu)
+    if vyber_textu < 1 or vyber_textu > pocet_textu:
       print(cara)
-      print("Invalid input, terminating the program...")
-      exit()      
+      print("Invalid number, terminating the program...")
+      exit()                       
+  else:
+    print(cara)
+    print("Invalid input, terminating the program...")
+    exit()      
   print(cara)
 elif uzivatel in registrovani_uzivatele and heslo != registrovani_uzivatele[uzivatel]:
   print(cara)
@@ -69,7 +69,7 @@ else:
   print(cara)
   print("unregistered user, terminating the program...")
   exit()
-  
+
 vycistena_slova = []
 pocet_malych_slov = 0
 pocet_velkych_slov = 0
